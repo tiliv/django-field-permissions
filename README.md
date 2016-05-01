@@ -9,7 +9,7 @@ _Runtime per-object checks, auth.Permission (or arbitrary callable) for fields._
 
 We make you declare a ``has_perm(user, perm)`` on any model that requires object-level checks.  You can ignore this method if you don't care very much about object-level checks; the default one won't get in your way.
 
-Static per-field permissions are defined via Django's (custom permissions)[https://docs.djangoproject.com/es/1.9/topics/auth/customizing/#custom-permissions] system, patterned as ``can_change_{model}_{fieldname}``, which is the standard permission label just with a suffix of the field in question.  Only fields nominated in this way will be checked by the system, and all others allow edits by default.
+Static per-field permissions are defined via Django's [custom permissions](https://docs.djangoproject.com/es/1.9/topics/auth/customizing/#custom-permissions) system, patterned as ``can_change_{model}_{fieldname}``, which is the standard permission label just with a suffix of the field in question.  Only fields nominated in this way will be checked by the system, and all others allow edits by default.
 
 You then assign these permissions the usual way (to ``auth.Group`` instances or specific users).  If ``user.has_perm('can_change_mymodel_myfield')`` returns True, then by default ``instance.has_field_perm(user, 'myfield')`` will return True as well.
 
@@ -56,7 +56,7 @@ class MyModel(FieldPermissionModelMixin, models.Model):
 
 #### Using ``auth.Permission`` for static permissions
 
-Define some Django (custom permissions)[https://docs.djangoproject.com/es/1.9/topics/auth/customizing/#custom-permissions] on your model for any fields that you want to opt into the permission system:
+Define some Django [custom permissions](https://docs.djangoproject.com/es/1.9/topics/auth/customizing/#custom-permissions) on your model for any fields that you want to opt into the permission system:
 
 ```python
 # models.py
