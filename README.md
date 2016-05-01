@@ -117,7 +117,7 @@ class Post(FieldPermissionModelMixin, models.Model):
         return self.user == user or user.is_staff
 ```
 
-Note that works specifically because these fields are represented in ``Meta.permissions``.  If you don't want to use the auth permission system at all, you can do so by offering the model a different system for nominating fields for the underlying ``has_field_perm()`` method to automatically discover:
+Note that this works specifically because these fields are represented in ``Meta.permissions``.  If you don't want to use the auth permission system at all, you can do so by offering the model a different system for nominating fields for the underlying ``has_field_perm()`` method to automatically discover:
 
 ```python
 class Post(FieldPermissionModelMixin, models.Model):
@@ -139,7 +139,7 @@ class Post(FieldPermissionModelMixin, models.Model):
     }
 ```
 
-In this example, the callbacks must accept an additional ``field`` keyword argument.  If you're using separate callbacks for every field, that argument is redundant, so the example replaced with with ``**kwargs``.
+In this example, the callbacks must accept an additional ``field`` keyword argument.  If you're using separate callbacks for every field, that argument is redundant, so the example replaced it with ``**kwargs``.
 
 If you were instead factoring out the copy-pasted check, you might use this instead:
 
