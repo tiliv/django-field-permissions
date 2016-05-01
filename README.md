@@ -94,7 +94,7 @@ You can choose whether or not you want to use static ``auth.Permission`` assignm
 
 By default, the hooks do nothing, but by overriding them and returning True or False, you can allow the object to choose at runtime what is allowed for the given user, regardless of their assigned permission.
 
-Extending our ``Post`` example model from earlier, we can provide these hooks for fields reprented in ``Meta.permissions`` list:
+Extending our ``Post`` example model from earlier, we can provide these hooks for fields represented in ``Meta.permissions`` list:
 
 ```python
 class Post(FieldPermissionModelMixin, models.Model):
