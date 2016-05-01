@@ -26,10 +26,4 @@ class InstancePermissionBackend(object):
         """
         Returns a set of permission strings that the given ``user_obj`` has for ``obj``
         """
-        # check if user_obj and object are supported
-        support, user_obj = check_support(user_obj, obj)
-        if not support:
-            return set()
-
-        check = ObjectPermissionChecker(user_obj)
-        return check.get_perms(obj)
+        return set()
